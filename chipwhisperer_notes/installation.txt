@@ -1,0 +1,44 @@
+sudo apt install libusb-dev make libusb-1.0-0-dev
+
+sudo apt install avr-libc gcc-avr
+sudo apt install gcc-arm-none-eabi
+
+sudo bash -c 'printf "SUBSYSTEM==\"usb\", ATTRS{idVendor}==\"2b3e\", ATTRS{idProduct}==\"*\", TAG+=\"uaccess\"\\n" >> /etc/udev/rules.d/50-newae.rules'
+sudo bash -c 'printf "SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"2b3e\", ATTRS{idProduct}==\"*\", TAG+=\"uaccess\", SYMLINK+=\"cw_serial%n\"\\n" >> /etc/udev/rules.d/50-newae.rules'
+sudo bash -c 'printf "SUBSYSTEM==\"tty\", ATTRS{idVendor}==\"03eb\", ATTRS{idProduct}==\"6124\", TAG+=\"uaccess\", SYMLINK += \"cw_bootloader%n\"\\n" >> /etc/udev/rules.d/50-newae.rules'
+
+sudo udevadm control --reload-rules
+
+##Follow instructions to add usb to VMware
+#https://github.com/newaetech/chipwhisperer/blob/develop/hardware/50-newae.rules
+sudo usermod -a -G dialout $USER
+
+##NOTE: This needs to be done before we start using pip installs
+python -m pip install --upgrade pip
+
+##Got few errors during the installation, think wheel is not installed, so installing it
+pip install wheel
+
+###Install Chipwhiperer from git
+## https://chipwhisperer.readthedocs.io/en/latest/installing.html#install-repo
+
+git clone https://github.com/newaetech/chipwhisperer.git
+
+##Make sure to load the ocrrect python version before implementing any pip installs
+cd chipwhisperer
+git submodule update --init jupyter
+
+pyenv which pip ##Check where the pip is being picked from
+## We do not need to specify python -m here, since we are already in the venv
+pip install -r jupyter/requirements.txt --user
+
+jupyter nbextension enable --py widgetsnbextension
+
+python -m pip install -e . --user
+
+
+## First add them using Virttual Machine > Shared > Shared setting, then use the following command
+####Shared folders in VMWare
+sudo /usr/bin/vmhgfs-fuse .host:/ /mnt/hgfs -o subtype=vmhgfs-fuse,allow_other
+
+
