@@ -1,0 +1,1217 @@
+   1              		.cpu cortex-m4
+   2              		.eabi_attribute 20, 1
+   3              		.eabi_attribute 21, 1
+   4              		.eabi_attribute 23, 3
+   5              		.eabi_attribute 24, 1
+   6              		.eabi_attribute 25, 1
+   7              		.eabi_attribute 26, 1
+   8              		.eabi_attribute 30, 4
+   9              		.eabi_attribute 34, 1
+  10              		.eabi_attribute 18, 4
+  11              		.file	"stm32l4_hal.c"
+  12              		.text
+  13              	.Ltext0:
+  14              		.cfi_sections	.debug_frame
+  15              		.section	.text.SystemInit,"ax",%progbits
+  16              		.align	1
+  17              		.global	SystemInit
+  18              		.arch armv7e-m
+  19              		.syntax unified
+  20              		.thumb
+  21              		.thumb_func
+  22              		.fpu softvfp
+  24              	SystemInit:
+  25              	.LFB123:
+  26              		.file 1 ".././hal/stm32l4/stm32l4_hal.c"
+   1:.././hal/stm32l4/stm32l4_hal.c **** 
+   2:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4_hal.h"
+   3:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4xx_hal_rcc.h"
+   4:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4xx_hal_gpio.h"
+   5:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4xx_hal_dma.h"
+   6:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4xx_hal_uart.h"
+   7:.././hal/stm32l4/stm32l4_hal.c **** #include "stm32l4xx_hal_cryp.h"
+   8:.././hal/stm32l4/stm32l4_hal.c **** 
+   9:.././hal/stm32l4/stm32l4_hal.c **** uint32_t SystemCoreClock = 4000000U;
+  10:.././hal/stm32l4/stm32l4_hal.c **** 
+  11:.././hal/stm32l4/stm32l4_hal.c **** const uint8_t  AHBPrescTable[16] = {0U, 0U, 0U, 0U, 0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U, 6U, 7U, 8U, 9U}
+  12:.././hal/stm32l4/stm32l4_hal.c **** const uint8_t  APBPrescTable[8] =  {0U, 0U, 0U, 0U, 1U, 2U, 3U, 4U};
+  13:.././hal/stm32l4/stm32l4_hal.c **** const uint32_t MSIRangeTable[12] = {100000U,   200000U,   400000U,   800000U,  1000000U,  2000000U,
+  14:.././hal/stm32l4/stm32l4_hal.c ****                                     4000000U, 8000000U, 16000000U, 24000000U, 32000000U, 48000000U}
+  15:.././hal/stm32l4/stm32l4_hal.c **** 
+  16:.././hal/stm32l4/stm32l4_hal.c **** void SystemInit(void)
+  17:.././hal/stm32l4/stm32l4_hal.c **** {
+  27              		.loc 1 17 1 view -0
+  28              		.cfi_startproc
+  29              		@ args = 0, pretend = 0, frame = 0
+  30              		@ frame_needed = 0, uses_anonymous_args = 0
+  31              		@ link register save eliminated.
+  18:.././hal/stm32l4/stm32l4_hal.c ****     //Init happens higher up
+  19:.././hal/stm32l4/stm32l4_hal.c ****     
+  20:.././hal/stm32l4/stm32l4_hal.c **** }
+  32              		.loc 1 20 1 view .LVU1
+  33 0000 7047     		bx	lr
+  34              		.cfi_endproc
+  35              	.LFE123:
+  37              		.section	.text.SystemCoreClockUpdate,"ax",%progbits
+  38              		.align	1
+  39              		.global	SystemCoreClockUpdate
+  40              		.syntax unified
+  41              		.thumb
+  42              		.thumb_func
+  43              		.fpu softvfp
+  45              	SystemCoreClockUpdate:
+  46              	.LFB141:
+  47              		.cfi_startproc
+  48              		@ args = 0, pretend = 0, frame = 0
+  49              		@ frame_needed = 0, uses_anonymous_args = 0
+  50              		@ link register save eliminated.
+  51 0000 7047     		bx	lr
+  52              		.cfi_endproc
+  53              	.LFE141:
+  55              		.section	.text.SysTick_Handler,"ax",%progbits
+  56              		.align	1
+  57              		.global	SysTick_Handler
+  58              		.syntax unified
+  59              		.thumb
+  60              		.thumb_func
+  61              		.fpu softvfp
+  63              	SysTick_Handler:
+  64              	.LFB125:
+  21:.././hal/stm32l4/stm32l4_hal.c **** 
+  22:.././hal/stm32l4/stm32l4_hal.c **** void SystemCoreClockUpdate(void)
+  23:.././hal/stm32l4/stm32l4_hal.c **** {
+  24:.././hal/stm32l4/stm32l4_hal.c ****     ;
+  25:.././hal/stm32l4/stm32l4_hal.c **** }
+  26:.././hal/stm32l4/stm32l4_hal.c **** 
+  27:.././hal/stm32l4/stm32l4_hal.c **** void HAL_IncTick(void);
+  28:.././hal/stm32l4/stm32l4_hal.c **** void SysTick_Handler(void)
+  29:.././hal/stm32l4/stm32l4_hal.c **** {
+  65              		.loc 1 29 1 view -0
+  66              		.cfi_startproc
+  67              		@ args = 0, pretend = 0, frame = 0
+  68              		@ frame_needed = 0, uses_anonymous_args = 0
+  69              		@ link register save eliminated.
+  30:.././hal/stm32l4/stm32l4_hal.c ****   HAL_IncTick();
+  70              		.loc 1 30 3 view .LVU3
+  71 0000 FFF7FEBF 		b	HAL_IncTick
+  72              	.LVL0:
+  73              		.cfi_endproc
+  74              	.LFE125:
+  76              		.section	.text._exit,"ax",%progbits
+  77              		.align	1
+  78              		.global	_exit
+  79              		.syntax unified
+  80              		.thumb
+  81              		.thumb_func
+  82              		.fpu softvfp
+  84              	_exit:
+  85              	.LFB126:
+  31:.././hal/stm32l4/stm32l4_hal.c **** }
+  32:.././hal/stm32l4/stm32l4_hal.c **** 
+  33:.././hal/stm32l4/stm32l4_hal.c **** void _exit(int status)
+  34:.././hal/stm32l4/stm32l4_hal.c **** {
+  86              		.loc 1 34 1 view -0
+  87              		.cfi_startproc
+  88              		@ Volatile: function does not return.
+  89              		@ args = 0, pretend = 0, frame = 0
+  90              		@ frame_needed = 0, uses_anonymous_args = 0
+  91              		@ link register save eliminated.
+  92              	.LVL1:
+  93              	.L5:
+  35:.././hal/stm32l4/stm32l4_hal.c ****     while(1);
+  94              		.loc 1 35 5 discriminator 1 view .LVU5
+  95              		.loc 1 35 13 discriminator 1 view .LVU6
+  96              		.loc 1 35 10 discriminator 1 view .LVU7
+  97 0000 FEE7     		b	.L5
+  98              		.cfi_endproc
+  99              	.LFE126:
+ 101              		.section	.text.platform_init,"ax",%progbits
+ 102              		.align	1
+ 103              		.global	platform_init
+ 104              		.syntax unified
+ 105              		.thumb
+ 106              		.thumb_func
+ 107              		.fpu softvfp
+ 109              	platform_init:
+ 110              	.LFB127:
+  36:.././hal/stm32l4/stm32l4_hal.c **** }
+  37:.././hal/stm32l4/stm32l4_hal.c **** 
+  38:.././hal/stm32l4/stm32l4_hal.c **** UART_HandleTypeDef UartHandle;
+  39:.././hal/stm32l4/stm32l4_hal.c **** 
+  40:.././hal/stm32l4/stm32l4_hal.c **** void platform_init(void)
+  41:.././hal/stm32l4/stm32l4_hal.c **** {
+ 111              		.loc 1 41 1 view -0
+ 112              		.cfi_startproc
+ 113              		@ args = 0, pretend = 0, frame = 88
+ 114              		@ frame_needed = 0, uses_anonymous_args = 0
+  42:.././hal/stm32l4/stm32l4_hal.c **** 	//HAL_Init();
+  43:.././hal/stm32l4/stm32l4_hal.c **** 
+  44:.././hal/stm32l4/stm32l4_hal.c **** #ifdef USE_INTERNAL_CLK
+  45:.././hal/stm32l4/stm32l4_hal.c ****      RCC_OscInitTypeDef RCC_OscInitStruct;
+  46:.././hal/stm32l4/stm32l4_hal.c ****      RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSI;
+  47:.././hal/stm32l4/stm32l4_hal.c ****      RCC_OscInitStruct.HSEState       = RCC_HSE_OFF;
+  48:.././hal/stm32l4/stm32l4_hal.c ****      RCC_OscInitStruct.HSIState       = RCC_HSI_ON;
+  49:.././hal/stm32l4/stm32l4_hal.c ****      RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+  50:.././hal/stm32l4/stm32l4_hal.c ****      HAL_RCC_OscConfig(&RCC_OscInitStruct);
+  51:.././hal/stm32l4/stm32l4_hal.c **** 
+  52:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitTypeDef RCC_ClkInitStruct;
+  53:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitStruct.ClockType      = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_
+  54:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitStruct.SYSCLKSource   = RCC_SYSCLKSOURCE_HSI;
+  55:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;
+  56:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  57:.././hal/stm32l4/stm32l4_hal.c ****      RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  58:.././hal/stm32l4/stm32l4_hal.c ****      uint32_t flash_latency = 0;
+  59:.././hal/stm32l4/stm32l4_hal.c ****      HAL_RCC_ClockConfig(&RCC_ClkInitStruct, flash_latency);
+  60:.././hal/stm32l4/stm32l4_hal.c ****      
+  61:.././hal/stm32l4/stm32l4_hal.c **** #else
+  62:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitTypeDef RCC_OscInitStruct;
+ 115              		.loc 1 62 2 view .LVU9
+  63:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.OscillatorType = RCC_OSCILLATORTYPE_HSE | RCC_OSCILLATORTYPE_HSI;
+ 116              		.loc 1 63 2 view .LVU10
+  41:.././hal/stm32l4/stm32l4_hal.c **** 	//HAL_Init();
+ 117              		.loc 1 41 1 is_stmt 0 view .LVU11
+ 118 0000 10B5     		push	{r4, lr}
+ 119              	.LCFI0:
+ 120              		.cfi_def_cfa_offset 8
+ 121              		.cfi_offset 4, -8
+ 122              		.cfi_offset 14, -4
+ 123 0002 96B0     		sub	sp, sp, #88
+ 124              	.LCFI1:
+ 125              		.cfi_def_cfa_offset 96
+  64:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.HSEState       = RCC_HSE_BYPASS;
+  65:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.HSIState       = RCC_HSI_OFF;
+ 126              		.loc 1 65 35 view .LVU12
+ 127 0004 0024     		movs	r4, #0
+  64:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.HSEState       = RCC_HSE_BYPASS;
+ 128              		.loc 1 64 35 view .LVU13
+ 129 0006 0322     		movs	r2, #3
+ 130 0008 4FF4A023 		mov	r3, #327680
+  66:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+  67:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_RCC_OscConfig(&RCC_OscInitStruct);
+ 131              		.loc 1 67 2 view .LVU14
+ 132 000c 05A8     		add	r0, sp, #20
+  64:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.HSEState       = RCC_HSE_BYPASS;
+ 133              		.loc 1 64 35 view .LVU15
+ 134 000e CDE90523 		strd	r2, r3, [sp, #20]
+  65:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+ 135              		.loc 1 65 2 is_stmt 1 view .LVU16
+  65:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+ 136              		.loc 1 65 35 is_stmt 0 view .LVU17
+ 137 0012 0894     		str	r4, [sp, #32]
+  66:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+ 138              		.loc 1 66 2 is_stmt 1 view .LVU18
+  66:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_OscInitStruct.PLL.PLLSource  = RCC_PLL_NONE;
+ 139              		.loc 1 66 35 is_stmt 0 view .LVU19
+ 140 0014 1094     		str	r4, [sp, #64]
+ 141              		.loc 1 67 2 is_stmt 1 view .LVU20
+ 142 0016 FFF7FEFF 		bl	HAL_RCC_OscConfig
+ 143              	.LVL2:
+  68:.././hal/stm32l4/stm32l4_hal.c **** 
+  69:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitTypeDef RCC_ClkInitStruct;
+ 144              		.loc 1 69 2 view .LVU21
+  70:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.ClockType      = (RCC_CLOCKTYPE_SYSCLK | RCC_CLOCKTYPE_HCLK | RCC_CLOCKTYPE_PCLK
+ 145              		.loc 1 70 2 view .LVU22
+  71:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.SYSCLKSource   = RCC_SYSCLKSOURCE_HSE;
+ 146              		.loc 1 71 35 is_stmt 0 view .LVU23
+ 147 001a 0223     		movs	r3, #2
+ 148 001c 0F21     		movs	r1, #15
+ 149 001e CDE90013 		strd	r1, r3, [sp]
+  72:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.AHBCLKDivider  = RCC_SYSCLK_DIV1;
+ 150              		.loc 1 72 2 is_stmt 1 view .LVU24
+  73:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+  74:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.APB2CLKDivider = RCC_HCLK_DIV1;
+  75:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_ACR_LATENCY_0WS);
+ 151              		.loc 1 75 2 is_stmt 0 view .LVU25
+ 152 0022 6846     		mov	r0, sp
+ 153 0024 2146     		mov	r1, r4
+  73:.././hal/stm32l4/stm32l4_hal.c **** 	RCC_ClkInitStruct.APB1CLKDivider = RCC_HCLK_DIV1;
+ 154              		.loc 1 73 35 view .LVU26
+ 155 0026 CDE90244 		strd	r4, r4, [sp, #8]
+  74:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_ACR_LATENCY_0WS);
+ 156              		.loc 1 74 2 is_stmt 1 view .LVU27
+  74:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_RCC_ClockConfig(&RCC_ClkInitStruct, FLASH_ACR_LATENCY_0WS);
+ 157              		.loc 1 74 35 is_stmt 0 view .LVU28
+ 158 002a 0494     		str	r4, [sp, #16]
+ 159              		.loc 1 75 2 is_stmt 1 view .LVU29
+ 160 002c FFF7FEFF 		bl	HAL_RCC_ClockConfig
+ 161              	.LVL3:
+  76:.././hal/stm32l4/stm32l4_hal.c **** #endif
+  77:.././hal/stm32l4/stm32l4_hal.c **** 
+  78:.././hal/stm32l4/stm32l4_hal.c ****     //SysTick interrupt will cause power trace noise - it's also re-enabled elsewhere,
+  79:.././hal/stm32l4/stm32l4_hal.c ****     //so we just disable global interrupts. Re-enable this for more interesting work.
+  80:.././hal/stm32l4/stm32l4_hal.c ****     //NVIC_DisableIRQ(SysTick_IRQn);
+  81:.././hal/stm32l4/stm32l4_hal.c ****     __disable_irq();
+ 162              		.loc 1 81 5 view .LVU30
+ 163              	.LBB4:
+ 164              	.LBI4:
+ 165              		.file 2 ".././hal/stm32l4/CMSIS/Include/cmsis_gcc.h"
+   1:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /**************************************************************************//**
+   2:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  * @file     cmsis_gcc.h
+   3:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  * @brief    CMSIS Cortex-M Core Function/Instruction Header File
+   4:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  * @version  V4.30
+   5:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  * @date     20. October 2015
+   6:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  ******************************************************************************/
+   7:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /* Copyright (c) 2009 - 2015 ARM LIMITED
+   8:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+   9:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    All rights reserved.
+  10:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    Redistribution and use in source and binary forms, with or without
+  11:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    modification, are permitted provided that the following conditions are met:
+  12:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    - Redistributions of source code must retain the above copyright
+  13:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****      notice, this list of conditions and the following disclaimer.
+  14:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    - Redistributions in binary form must reproduce the above copyright
+  15:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****      notice, this list of conditions and the following disclaimer in the
+  16:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****      documentation and/or other materials provided with the distribution.
+  17:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    - Neither the name of ARM nor the names of its contributors may be used
+  18:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****      to endorse or promote products derived from this software without
+  19:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****      specific prior written permission.
+  20:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    *
+  21:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS"
+  22:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE
+  23:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE
+  24:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    ARE DISCLAIMED. IN NO EVENT SHALL COPYRIGHT HOLDERS AND CONTRIBUTORS BE
+  25:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
+  26:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
+  27:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS
+  28:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN
+  29:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE)
+  30:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE
+  31:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    POSSIBILITY OF SUCH DAMAGE.
+  32:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****    ---------------------------------------------------------------------------*/
+  33:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  34:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  35:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #ifndef __CMSIS_GCC_H
+  36:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #define __CMSIS_GCC_H
+  37:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  38:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /* ignore some GCC warnings */
+  39:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #if defined ( __GNUC__ )
+  40:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic push
+  41:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wsign-conversion"
+  42:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wconversion"
+  43:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #pragma GCC diagnostic ignored "-Wunused-parameter"
+  44:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** #endif
+  45:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  46:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  47:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /* ###########################  Core Function Access  ########################### */
+  48:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /** \ingroup  CMSIS_Core_FunctionInterface
+  49:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****     \defgroup CMSIS_Core_RegAccFunctions CMSIS Core Register Access Functions
+  50:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   @{
+  51:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  */
+  52:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  53:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /**
+  54:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   \brief   Enable IRQ Interrupts
+  55:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   \details Enables IRQ interrupts by clearing the I-bit in the CPSR.
+  56:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****            Can only be executed in Privileged modes.
+  57:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  */
+  58:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __enable_irq(void)
+  59:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** {
+  60:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsie i" : : : "memory");
+  61:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** }
+  62:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  63:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** 
+  64:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** /**
+  65:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   \brief   Disable IRQ Interrupts
+  66:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   \details Disables IRQ interrupts by setting the I-bit in the CPSR.
+  67:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   Can only be executed in Privileged modes.
+  68:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****  */
+  69:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** __attribute__( ( always_inline ) ) __STATIC_INLINE void __disable_irq(void)
+ 166              		.loc 2 69 57 view .LVU31
+ 167              	.LBB5:
+  70:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h **** {
+  71:.././hal/stm32l4/CMSIS/Include/cmsis_gcc.h ****   __ASM volatile ("cpsid i" : : : "memory");
+ 168              		.loc 2 71 3 view .LVU32
+ 169              		.syntax unified
+ 170              	@ 71 ".././hal/stm32l4/CMSIS/Include/cmsis_gcc.h" 1
+ 171 0030 72B6     		cpsid i
+ 172              	@ 0 "" 2
+ 173              		.thumb
+ 174              		.syntax unified
+ 175              	.LBE5:
+ 176              	.LBE4:
+  82:.././hal/stm32l4/stm32l4_hal.c **** }
+ 177              		.loc 1 82 1 is_stmt 0 view .LVU33
+ 178 0032 16B0     		add	sp, sp, #88
+ 179              	.LCFI2:
+ 180              		.cfi_def_cfa_offset 8
+ 181              		@ sp needed
+ 182 0034 10BD     		pop	{r4, pc}
+ 183              		.cfi_endproc
+ 184              	.LFE127:
+ 186              		.section	.text.init_uart,"ax",%progbits
+ 187              		.align	1
+ 188              		.global	init_uart
+ 189              		.syntax unified
+ 190              		.thumb
+ 191              		.thumb_func
+ 192              		.fpu softvfp
+ 194              	init_uart:
+ 195              	.LFB128:
+  83:.././hal/stm32l4/stm32l4_hal.c **** 
+  84:.././hal/stm32l4/stm32l4_hal.c **** void init_uart(void)
+  85:.././hal/stm32l4/stm32l4_hal.c **** {
+ 196              		.loc 1 85 1 is_stmt 1 view -0
+ 197              		.cfi_startproc
+ 198              		@ args = 0, pretend = 0, frame = 32
+ 199              		@ frame_needed = 0, uses_anonymous_args = 0
+  86:.././hal/stm32l4/stm32l4_hal.c ****     GPIO_InitTypeDef GpioInit;
+ 200              		.loc 1 86 5 view .LVU35
+  87:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Pin       = GPIO_PIN_9 | GPIO_PIN_10;
+ 201              		.loc 1 87 5 view .LVU36
+  85:.././hal/stm32l4/stm32l4_hal.c ****     GPIO_InitTypeDef GpioInit;
+ 202              		.loc 1 85 1 is_stmt 0 view .LVU37
+ 203 0000 10B5     		push	{r4, lr}
+ 204              	.LCFI3:
+ 205              		.cfi_def_cfa_offset 8
+ 206              		.cfi_offset 4, -8
+ 207              		.cfi_offset 14, -4
+  88:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Mode      = GPIO_MODE_AF_PP;
+ 208              		.loc 1 88 24 view .LVU38
+ 209 0002 0223     		movs	r3, #2
+  85:.././hal/stm32l4/stm32l4_hal.c ****     GPIO_InitTypeDef GpioInit;
+ 210              		.loc 1 85 1 view .LVU39
+ 211 0004 88B0     		sub	sp, sp, #32
+ 212              	.LCFI4:
+ 213              		.cfi_def_cfa_offset 40
+ 214              		.loc 1 88 24 view .LVU40
+ 215 0006 4FF4C062 		mov	r2, #1536
+ 216 000a CDE90323 		strd	r2, r3, [sp, #12]
+  89:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Pull      = GPIO_PULLUP;
+ 217              		.loc 1 89 5 is_stmt 1 view .LVU41
+ 218              		.loc 1 89 24 is_stmt 0 view .LVU42
+ 219 000e 0122     		movs	r2, #1
+  90:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Speed     = GPIO_SPEED_FREQ_HIGH;
+ 220              		.loc 1 90 24 view .LVU43
+ 221 0010 CDE90523 		strd	r2, r3, [sp, #20]
+  91:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Alternate = GPIO_AF7_USART1;
+ 222              		.loc 1 91 5 is_stmt 1 view .LVU44
+ 223              	.LBB6:
+  92:.././hal/stm32l4/stm32l4_hal.c ****     __GPIOA_CLK_ENABLE();
+ 224              		.loc 1 92 5 is_stmt 0 view .LVU45
+ 225 0014 144C     		ldr	r4, .L8
+ 226              	.LBE6:
+  91:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Alternate = GPIO_AF7_USART1;
+ 227              		.loc 1 91 24 view .LVU46
+ 228 0016 0723     		movs	r3, #7
+ 229 0018 0793     		str	r3, [sp, #28]
+ 230              		.loc 1 92 5 is_stmt 1 view .LVU47
+ 231              	.LBB7:
+ 232              		.loc 1 92 5 view .LVU48
+ 233              		.loc 1 92 5 view .LVU49
+ 234 001a E36C     		ldr	r3, [r4, #76]
+ 235 001c 1343     		orrs	r3, r3, r2
+ 236 001e E364     		str	r3, [r4, #76]
+ 237              		.loc 1 92 5 view .LVU50
+ 238 0020 E36C     		ldr	r3, [r4, #76]
+ 239 0022 1340     		ands	r3, r3, r2
+ 240 0024 0193     		str	r3, [sp, #4]
+ 241              		.loc 1 92 5 view .LVU51
+ 242              	.LBE7:
+  93:.././hal/stm32l4/stm32l4_hal.c ****     HAL_GPIO_Init(GPIOA, &GpioInit);
+ 243              		.loc 1 93 5 is_stmt 0 view .LVU52
+ 244 0026 03A9     		add	r1, sp, #12
+ 245 0028 4FF09040 		mov	r0, #1207959552
+ 246              	.LBB8:
+  92:.././hal/stm32l4/stm32l4_hal.c ****     __GPIOA_CLK_ENABLE();
+ 247              		.loc 1 92 5 view .LVU53
+ 248 002c 019B     		ldr	r3, [sp, #4]
+ 249              	.LBE8:
+  92:.././hal/stm32l4/stm32l4_hal.c ****     __GPIOA_CLK_ENABLE();
+ 250              		.loc 1 92 5 is_stmt 1 view .LVU54
+ 251              		.loc 1 93 5 view .LVU55
+ 252 002e FFF7FEFF 		bl	HAL_GPIO_Init
+ 253              	.LVL4:
+  94:.././hal/stm32l4/stm32l4_hal.c **** 
+  95:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Instance        = USART1;
+ 254              		.loc 1 95 5 view .LVU56
+ 255              		.loc 1 95 32 is_stmt 0 view .LVU57
+ 256 0032 0E48     		ldr	r0, .L8+4
+  96:.././hal/stm32l4/stm32l4_hal.c ****   #if SS_VER==SS_VER_2_0
+  97:.././hal/stm32l4/stm32l4_hal.c ****   UartHandle.Init.BaudRate   = 230400;
+  98:.././hal/stm32l4/stm32l4_hal.c ****   #else
+  99:.././hal/stm32l4/stm32l4_hal.c ****   //UartHandle.Init.BaudRate   = 32914;
+ 100:.././hal/stm32l4/stm32l4_hal.c ****   UartHandle.Init.BaudRate   = 38400;
+ 257              		.loc 1 100 30 view .LVU58
+ 258 0034 0E49     		ldr	r1, .L8+8
+ 259 0036 4FF41643 		mov	r3, #38400
+ 260 003a C0E90013 		strd	r1, r3, [r0]
+ 101:.././hal/stm32l4/stm32l4_hal.c ****   #endif
+ 102:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Init.WordLength = UART_WORDLENGTH_8B;
+ 261              		.loc 1 102 5 is_stmt 1 view .LVU59
+ 262              		.loc 1 102 32 is_stmt 0 view .LVU60
+ 263 003e 0023     		movs	r3, #0
+ 103:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Init.StopBits   = UART_STOPBITS_1;
+ 264              		.loc 1 103 32 view .LVU61
+ 265 0040 C0E90233 		strd	r3, r3, [r0, #8]
+ 104:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Init.Parity     = UART_PARITY_NONE;
+ 266              		.loc 1 104 5 is_stmt 1 view .LVU62
+ 267              		.loc 1 104 32 is_stmt 0 view .LVU63
+ 268 0044 0361     		str	r3, [r0, #16]
+ 105:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Init.HwFlowCtl  = UART_HWCONTROL_NONE;
+ 269              		.loc 1 105 5 is_stmt 1 view .LVU64
+ 270              		.loc 1 105 32 is_stmt 0 view .LVU65
+ 271 0046 8361     		str	r3, [r0, #24]
+ 106:.././hal/stm32l4/stm32l4_hal.c ****     UartHandle.Init.Mode       = UART_MODE_TX_RX;
+ 272              		.loc 1 106 5 is_stmt 1 view .LVU66
+ 273              		.loc 1 106 32 is_stmt 0 view .LVU67
+ 274 0048 0C23     		movs	r3, #12
+ 275 004a 4361     		str	r3, [r0, #20]
+ 107:.././hal/stm32l4/stm32l4_hal.c ****     __USART1_CLK_ENABLE();
+ 276              		.loc 1 107 5 is_stmt 1 view .LVU68
+ 277              	.LBB9:
+ 278              		.loc 1 107 5 view .LVU69
+ 279              		.loc 1 107 5 view .LVU70
+ 280 004c 236E     		ldr	r3, [r4, #96]
+ 281 004e 43F48043 		orr	r3, r3, #16384
+ 282 0052 2366     		str	r3, [r4, #96]
+ 283              		.loc 1 107 5 view .LVU71
+ 284 0054 236E     		ldr	r3, [r4, #96]
+ 285 0056 03F48043 		and	r3, r3, #16384
+ 286 005a 0293     		str	r3, [sp, #8]
+ 287              		.loc 1 107 5 view .LVU72
+ 288 005c 029B     		ldr	r3, [sp, #8]
+ 289              	.LBE9:
+ 290              		.loc 1 107 5 view .LVU73
+ 108:.././hal/stm32l4/stm32l4_hal.c ****     HAL_UART_Init(&UartHandle);
+ 291              		.loc 1 108 5 view .LVU74
+ 292 005e FFF7FEFF 		bl	HAL_UART_Init
+ 293              	.LVL5:
+ 109:.././hal/stm32l4/stm32l4_hal.c **** }
+ 294              		.loc 1 109 1 is_stmt 0 view .LVU75
+ 295 0062 08B0     		add	sp, sp, #32
+ 296              	.LCFI5:
+ 297              		.cfi_def_cfa_offset 8
+ 298              		@ sp needed
+ 299 0064 10BD     		pop	{r4, pc}
+ 300              	.L9:
+ 301 0066 00BF     		.align	2
+ 302              	.L8:
+ 303 0068 00100240 		.word	1073876992
+ 304 006c 00000000 		.word	UartHandle
+ 305 0070 00380140 		.word	1073821696
+ 306              		.cfi_endproc
+ 307              	.LFE128:
+ 309              		.section	.text.trigger_setup,"ax",%progbits
+ 310              		.align	1
+ 311              		.global	trigger_setup
+ 312              		.syntax unified
+ 313              		.thumb
+ 314              		.thumb_func
+ 315              		.fpu softvfp
+ 317              	trigger_setup:
+ 318              	.LFB129:
+ 110:.././hal/stm32l4/stm32l4_hal.c **** 
+ 111:.././hal/stm32l4/stm32l4_hal.c **** void trigger_setup(void)
+ 112:.././hal/stm32l4/stm32l4_hal.c **** {
+ 319              		.loc 1 112 1 is_stmt 1 view -0
+ 320              		.cfi_startproc
+ 321              		@ args = 0, pretend = 0, frame = 24
+ 322              		@ frame_needed = 0, uses_anonymous_args = 0
+ 113:.././hal/stm32l4/stm32l4_hal.c ****     GPIO_InitTypeDef GpioInit;
+ 323              		.loc 1 113 5 view .LVU77
+ 114:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Pin       = GPIO_PIN_12;
+ 324              		.loc 1 114 5 view .LVU78
+ 112:.././hal/stm32l4/stm32l4_hal.c ****     GPIO_InitTypeDef GpioInit;
+ 325              		.loc 1 112 1 is_stmt 0 view .LVU79
+ 326 0000 7FB5     		push	{r0, r1, r2, r3, r4, r5, r6, lr}
+ 327              	.LCFI6:
+ 328              		.cfi_def_cfa_offset 32
+ 329              		.cfi_offset 14, -4
+ 115:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Mode      = GPIO_MODE_OUTPUT_PP;
+ 330              		.loc 1 115 24 view .LVU80
+ 331 0002 4FF48052 		mov	r2, #4096
+ 332 0006 0123     		movs	r3, #1
+ 333 0008 CDE90123 		strd	r2, r3, [sp, #4]
+ 116:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Pull      = GPIO_NOPULL;
+ 334              		.loc 1 116 5 is_stmt 1 view .LVU81
+ 117:.././hal/stm32l4/stm32l4_hal.c ****     GpioInit.Speed     = GPIO_SPEED_FREQ_HIGH;
+ 335              		.loc 1 117 24 is_stmt 0 view .LVU82
+ 336 000c 0021     		movs	r1, #0
+ 337 000e 0223     		movs	r3, #2
+ 338 0010 CDE90313 		strd	r1, r3, [sp, #12]
+ 118:.././hal/stm32l4/stm32l4_hal.c ****     HAL_GPIO_Init(GPIOA, &GpioInit);
+ 339              		.loc 1 118 5 is_stmt 1 view .LVU83
+ 340 0014 4FF09040 		mov	r0, #1207959552
+ 341 0018 01A9     		add	r1, sp, #4
+ 342 001a FFF7FEFF 		bl	HAL_GPIO_Init
+ 343              	.LVL6:
+ 119:.././hal/stm32l4/stm32l4_hal.c **** }
+ 344              		.loc 1 119 1 is_stmt 0 view .LVU84
+ 345 001e 07B0     		add	sp, sp, #28
+ 346              	.LCFI7:
+ 347              		.cfi_def_cfa_offset 4
+ 348              		@ sp needed
+ 349 0020 5DF804FB 		ldr	pc, [sp], #4
+ 350              		.cfi_endproc
+ 351              	.LFE129:
+ 353              		.section	.text.trigger_high,"ax",%progbits
+ 354              		.align	1
+ 355              		.global	trigger_high
+ 356              		.syntax unified
+ 357              		.thumb
+ 358              		.thumb_func
+ 359              		.fpu softvfp
+ 361              	trigger_high:
+ 362              	.LFB130:
+ 120:.././hal/stm32l4/stm32l4_hal.c **** 
+ 121:.././hal/stm32l4/stm32l4_hal.c **** void trigger_high(void)
+ 122:.././hal/stm32l4/stm32l4_hal.c **** {
+ 363              		.loc 1 122 1 is_stmt 1 view -0
+ 364              		.cfi_startproc
+ 365              		@ args = 0, pretend = 0, frame = 0
+ 366              		@ frame_needed = 0, uses_anonymous_args = 0
+ 367              		@ link register save eliminated.
+ 123:.././hal/stm32l4/stm32l4_hal.c ****     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, SET);
+ 368              		.loc 1 123 5 view .LVU86
+ 369 0000 0122     		movs	r2, #1
+ 370 0002 4FF48051 		mov	r1, #4096
+ 371 0006 4FF09040 		mov	r0, #1207959552
+ 372 000a FFF7FEBF 		b	HAL_GPIO_WritePin
+ 373              	.LVL7:
+ 374              		.cfi_endproc
+ 375              	.LFE130:
+ 377              		.section	.text.trigger_low,"ax",%progbits
+ 378              		.align	1
+ 379              		.global	trigger_low
+ 380              		.syntax unified
+ 381              		.thumb
+ 382              		.thumb_func
+ 383              		.fpu softvfp
+ 385              	trigger_low:
+ 386              	.LFB131:
+ 124:.././hal/stm32l4/stm32l4_hal.c **** }
+ 125:.././hal/stm32l4/stm32l4_hal.c **** 
+ 126:.././hal/stm32l4/stm32l4_hal.c **** void trigger_low(void)
+ 127:.././hal/stm32l4/stm32l4_hal.c **** {
+ 387              		.loc 1 127 1 view -0
+ 388              		.cfi_startproc
+ 389              		@ args = 0, pretend = 0, frame = 0
+ 390              		@ frame_needed = 0, uses_anonymous_args = 0
+ 391              		@ link register save eliminated.
+ 128:.././hal/stm32l4/stm32l4_hal.c ****     HAL_GPIO_WritePin(GPIOA, GPIO_PIN_12, RESET);
+ 392              		.loc 1 128 5 view .LVU88
+ 393 0000 0022     		movs	r2, #0
+ 394 0002 4FF48051 		mov	r1, #4096
+ 395 0006 4FF09040 		mov	r0, #1207959552
+ 396 000a FFF7FEBF 		b	HAL_GPIO_WritePin
+ 397              	.LVL8:
+ 398              		.cfi_endproc
+ 399              	.LFE131:
+ 401              		.section	.text.getch,"ax",%progbits
+ 402              		.align	1
+ 403              		.global	getch
+ 404              		.syntax unified
+ 405              		.thumb
+ 406              		.thumb_func
+ 407              		.fpu softvfp
+ 409              	getch:
+ 410              	.LFB132:
+ 129:.././hal/stm32l4/stm32l4_hal.c **** }
+ 130:.././hal/stm32l4/stm32l4_hal.c **** 
+ 131:.././hal/stm32l4/stm32l4_hal.c **** char getch(void)
+ 132:.././hal/stm32l4/stm32l4_hal.c **** {
+ 411              		.loc 1 132 1 view -0
+ 412              		.cfi_startproc
+ 413              		@ args = 0, pretend = 0, frame = 8
+ 414              		@ frame_needed = 0, uses_anonymous_args = 0
+ 133:.././hal/stm32l4/stm32l4_hal.c ****     uint8_t d;
+ 415              		.loc 1 133 5 view .LVU90
+ 134:.././hal/stm32l4/stm32l4_hal.c ****     while (HAL_UART_Receive(&UartHandle, &d, 1, 5000) != HAL_OK)
+ 416              		.loc 1 134 5 view .LVU91
+ 132:.././hal/stm32l4/stm32l4_hal.c ****     uint8_t d;
+ 417              		.loc 1 132 1 is_stmt 0 view .LVU92
+ 418 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+ 419              	.LCFI8:
+ 420              		.cfi_def_cfa_offset 24
+ 421              		.cfi_offset 4, -12
+ 422              		.cfi_offset 5, -8
+ 423              		.cfi_offset 14, -4
+ 424              		.loc 1 134 12 view .LVU93
+ 425 0002 0A4D     		ldr	r5, .L16
+ 135:.././hal/stm32l4/stm32l4_hal.c ****         USART1->ICR |= (1 << 3);
+ 426              		.loc 1 135 21 view .LVU94
+ 427 0004 0A4C     		ldr	r4, .L16+4
+ 428              	.L14:
+ 134:.././hal/stm32l4/stm32l4_hal.c ****     while (HAL_UART_Receive(&UartHandle, &d, 1, 5000) != HAL_OK)
+ 429              		.loc 1 134 11 is_stmt 1 view .LVU95
+ 134:.././hal/stm32l4/stm32l4_hal.c ****     while (HAL_UART_Receive(&UartHandle, &d, 1, 5000) != HAL_OK)
+ 430              		.loc 1 134 12 is_stmt 0 view .LVU96
+ 431 0006 41F28833 		movw	r3, #5000
+ 432 000a 0122     		movs	r2, #1
+ 433 000c 0DF10701 		add	r1, sp, #7
+ 434 0010 2846     		mov	r0, r5
+ 435 0012 FFF7FEFF 		bl	HAL_UART_Receive
+ 436              	.LVL9:
+ 134:.././hal/stm32l4/stm32l4_hal.c ****     while (HAL_UART_Receive(&UartHandle, &d, 1, 5000) != HAL_OK)
+ 437              		.loc 1 134 11 view .LVU97
+ 438 0016 18B9     		cbnz	r0, .L15
+ 136:.././hal/stm32l4/stm32l4_hal.c ****     return d;
+ 439              		.loc 1 136 5 is_stmt 1 view .LVU98
+ 137:.././hal/stm32l4/stm32l4_hal.c **** }
+ 440              		.loc 1 137 1 is_stmt 0 view .LVU99
+ 441 0018 9DF80700 		ldrb	r0, [sp, #7]	@ zero_extendqisi2
+ 442 001c 03B0     		add	sp, sp, #12
+ 443              	.LCFI9:
+ 444              		.cfi_remember_state
+ 445              		.cfi_def_cfa_offset 12
+ 446              		@ sp needed
+ 447 001e 30BD     		pop	{r4, r5, pc}
+ 448              	.L15:
+ 449              	.LCFI10:
+ 450              		.cfi_restore_state
+ 135:.././hal/stm32l4/stm32l4_hal.c ****         USART1->ICR |= (1 << 3);
+ 451              		.loc 1 135 9 is_stmt 1 view .LVU100
+ 135:.././hal/stm32l4/stm32l4_hal.c ****         USART1->ICR |= (1 << 3);
+ 452              		.loc 1 135 21 is_stmt 0 view .LVU101
+ 453 0020 236A     		ldr	r3, [r4, #32]
+ 454 0022 43F00803 		orr	r3, r3, #8
+ 455 0026 2362     		str	r3, [r4, #32]
+ 456 0028 EDE7     		b	.L14
+ 457              	.L17:
+ 458 002a 00BF     		.align	2
+ 459              	.L16:
+ 460 002c 00000000 		.word	UartHandle
+ 461 0030 00380140 		.word	1073821696
+ 462              		.cfi_endproc
+ 463              	.LFE132:
+ 465              		.section	.text.putch,"ax",%progbits
+ 466              		.align	1
+ 467              		.global	putch
+ 468              		.syntax unified
+ 469              		.thumb
+ 470              		.thumb_func
+ 471              		.fpu softvfp
+ 473              	putch:
+ 474              	.LVL10:
+ 475              	.LFB133:
+ 138:.././hal/stm32l4/stm32l4_hal.c **** 
+ 139:.././hal/stm32l4/stm32l4_hal.c **** void putch(char c)
+ 140:.././hal/stm32l4/stm32l4_hal.c **** {
+ 476              		.loc 1 140 1 is_stmt 1 view -0
+ 477              		.cfi_startproc
+ 478              		@ args = 0, pretend = 0, frame = 8
+ 479              		@ frame_needed = 0, uses_anonymous_args = 0
+ 141:.././hal/stm32l4/stm32l4_hal.c ****     uint8_t d  = c;
+ 480              		.loc 1 141 5 view .LVU103
+ 140:.././hal/stm32l4/stm32l4_hal.c ****     uint8_t d  = c;
+ 481              		.loc 1 140 1 is_stmt 0 view .LVU104
+ 482 0000 07B5     		push	{r0, r1, r2, lr}
+ 483              	.LCFI11:
+ 484              		.cfi_def_cfa_offset 16
+ 485              		.cfi_offset 14, -4
+ 142:.././hal/stm32l4/stm32l4_hal.c ****     HAL_UART_Transmit(&UartHandle,  &d, 1, 5000);
+ 486              		.loc 1 142 5 view .LVU105
+ 487 0002 41F28833 		movw	r3, #5000
+ 141:.././hal/stm32l4/stm32l4_hal.c ****     uint8_t d  = c;
+ 488              		.loc 1 141 13 view .LVU106
+ 489 0006 8DF80700 		strb	r0, [sp, #7]
+ 490              		.loc 1 142 5 is_stmt 1 view .LVU107
+ 491 000a 0122     		movs	r2, #1
+ 492 000c 0DF10701 		add	r1, sp, #7
+ 493 0010 0248     		ldr	r0, .L19
+ 494              	.LVL11:
+ 495              		.loc 1 142 5 is_stmt 0 view .LVU108
+ 496 0012 FFF7FEFF 		bl	HAL_UART_Transmit
+ 497              	.LVL12:
+ 143:.././hal/stm32l4/stm32l4_hal.c **** }
+ 498              		.loc 1 143 1 view .LVU109
+ 499 0016 03B0     		add	sp, sp, #12
+ 500              	.LCFI12:
+ 501              		.cfi_def_cfa_offset 4
+ 502              		@ sp needed
+ 503 0018 5DF804FB 		ldr	pc, [sp], #4
+ 504              	.L20:
+ 505              		.align	2
+ 506              	.L19:
+ 507 001c 00000000 		.word	UartHandle
+ 508              		.cfi_endproc
+ 509              	.LFE133:
+ 511              		.section	.text.HW_AES128_LoadKey,"ax",%progbits
+ 512              		.align	1
+ 513              		.global	HW_AES128_LoadKey
+ 514              		.syntax unified
+ 515              		.thumb
+ 516              		.thumb_func
+ 517              		.fpu softvfp
+ 519              	HW_AES128_LoadKey:
+ 520              	.LVL13:
+ 521              	.LFB135:
+ 144:.././hal/stm32l4/stm32l4_hal.c **** 
+ 145:.././hal/stm32l4/stm32l4_hal.c **** uint8_t hw_key[16];
+ 146:.././hal/stm32l4/stm32l4_hal.c **** static CRYP_HandleTypeDef cryp;
+ 147:.././hal/stm32l4/stm32l4_hal.c **** 
+ 148:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_Init(void)
+ 149:.././hal/stm32l4/stm32l4_hal.c **** {
+ 150:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Instance = AES;
+ 151:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.DataType = CRYP_DATATYPE_8B;
+ 152:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.KeySize = CRYP_KEYSIZE_128B;
+ 153:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.pKey = hw_key;
+ 154:.././hal/stm32l4/stm32l4_hal.c **** 	HW_AES128_LoadKey(hw_key);
+ 155:.././hal/stm32l4/stm32l4_hal.c ****   __HAL_RCC_AES_CLK_ENABLE();
+ 156:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 157:.././hal/stm32l4/stm32l4_hal.c **** }
+ 158:.././hal/stm32l4/stm32l4_hal.c **** 
+ 159:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_LoadKey(uint8_t* key)
+ 160:.././hal/stm32l4/stm32l4_hal.c **** {
+ 522              		.loc 1 160 1 is_stmt 1 view -0
+ 523              		.cfi_startproc
+ 524              		@ args = 0, pretend = 0, frame = 0
+ 525              		@ frame_needed = 0, uses_anonymous_args = 0
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	for(int i = 0; i < 16; i++)
+ 526              		.loc 1 161 2 view .LVU111
+ 527              	.LBB10:
+ 528              		.loc 1 161 6 view .LVU112
+ 529              		.loc 1 161 17 view .LVU113
+ 530              	.LBE10:
+ 160:.././hal/stm32l4/stm32l4_hal.c **** 	for(int i = 0; i < 16; i++)
+ 531              		.loc 1 160 1 is_stmt 0 view .LVU114
+ 532 0000 30B5     		push	{r4, r5, lr}
+ 533              	.LCFI13:
+ 534              		.cfi_def_cfa_offset 12
+ 535              		.cfi_offset 4, -12
+ 536              		.cfi_offset 5, -8
+ 537              		.cfi_offset 14, -4
+ 538 0002 074A     		ldr	r2, .L24
+ 539              	.LBB11:
+ 162:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 163:.././hal/stm32l4/stm32l4_hal.c **** 		hw_key[i] = key[i];
+ 164:.././hal/stm32l4/stm32l4_hal.c **** 		cryp.Init.pKey[i] = key[i];
+ 540              		.loc 1 164 12 view .LVU115
+ 541 0004 074D     		ldr	r5, .L24+4
+ 542 0006 0138     		subs	r0, r0, #1
+ 543              	.LVL14:
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 544              		.loc 1 161 10 view .LVU116
+ 545 0008 0023     		movs	r3, #0
+ 546              	.LVL15:
+ 547              	.L22:
+ 163:.././hal/stm32l4/stm32l4_hal.c **** 		cryp.Init.pKey[i] = key[i];
+ 548              		.loc 1 163 3 is_stmt 1 discriminator 3 view .LVU117
+ 163:.././hal/stm32l4/stm32l4_hal.c **** 		cryp.Init.pKey[i] = key[i];
+ 549              		.loc 1 163 18 is_stmt 0 discriminator 3 view .LVU118
+ 550 000a 10F8011F 		ldrb	r1, [r0, #1]!	@ zero_extendqisi2
+ 163:.././hal/stm32l4/stm32l4_hal.c **** 		cryp.Init.pKey[i] = key[i];
+ 551              		.loc 1 163 13 discriminator 3 view .LVU119
+ 552 000e 02F8011B 		strb	r1, [r2], #1
+ 553              		.loc 1 164 3 is_stmt 1 discriminator 3 view .LVU120
+ 554              		.loc 1 164 21 is_stmt 0 discriminator 3 view .LVU121
+ 555 0012 296A     		ldr	r1, [r5, #32]
+ 556              		.loc 1 164 26 discriminator 3 view .LVU122
+ 557 0014 0478     		ldrb	r4, [r0]	@ zero_extendqisi2
+ 558              		.loc 1 164 21 discriminator 3 view .LVU123
+ 559 0016 CC54     		strb	r4, [r1, r3]
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 560              		.loc 1 161 25 is_stmt 1 discriminator 3 view .LVU124
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 561              		.loc 1 161 26 is_stmt 0 discriminator 3 view .LVU125
+ 562 0018 0133     		adds	r3, r3, #1
+ 563              	.LVL16:
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 564              		.loc 1 161 17 is_stmt 1 discriminator 3 view .LVU126
+ 161:.././hal/stm32l4/stm32l4_hal.c **** 	{
+ 565              		.loc 1 161 2 is_stmt 0 discriminator 3 view .LVU127
+ 566 001a 102B     		cmp	r3, #16
+ 567 001c F5D1     		bne	.L22
+ 568              	.LBE11:
+ 165:.././hal/stm32l4/stm32l4_hal.c **** 	}
+ 166:.././hal/stm32l4/stm32l4_hal.c **** }
+ 569              		.loc 1 166 1 view .LVU128
+ 570 001e 30BD     		pop	{r4, r5, pc}
+ 571              	.L25:
+ 572              		.align	2
+ 573              	.L24:
+ 574 0020 00000000 		.word	hw_key
+ 575 0024 00000000 		.word	.LANCHOR0
+ 576              		.cfi_endproc
+ 577              	.LFE135:
+ 579              		.section	.text.HW_AES128_Init,"ax",%progbits
+ 580              		.align	1
+ 581              		.global	HW_AES128_Init
+ 582              		.syntax unified
+ 583              		.thumb
+ 584              		.thumb_func
+ 585              		.fpu softvfp
+ 587              	HW_AES128_Init:
+ 588              	.LFB134:
+ 149:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Instance = AES;
+ 589              		.loc 1 149 1 is_stmt 1 view -0
+ 590              		.cfi_startproc
+ 591              		@ args = 0, pretend = 0, frame = 8
+ 592              		@ frame_needed = 0, uses_anonymous_args = 0
+ 150:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.DataType = CRYP_DATATYPE_8B;
+ 593              		.loc 1 150 2 view .LVU130
+ 149:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Instance = AES;
+ 594              		.loc 1 149 1 is_stmt 0 view .LVU131
+ 595 0000 13B5     		push	{r0, r1, r4, lr}
+ 596              	.LCFI14:
+ 597              		.cfi_def_cfa_offset 16
+ 598              		.cfi_offset 4, -8
+ 599              		.cfi_offset 14, -4
+ 150:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.DataType = CRYP_DATATYPE_8B;
+ 600              		.loc 1 150 16 view .LVU132
+ 601 0002 0D4C     		ldr	r4, .L27
+ 602 0004 0D4B     		ldr	r3, .L27+4
+ 153:.././hal/stm32l4/stm32l4_hal.c **** 	HW_AES128_LoadKey(hw_key);
+ 603              		.loc 1 153 17 view .LVU133
+ 604 0006 0E48     		ldr	r0, .L27+8
+ 150:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.DataType = CRYP_DATATYPE_8B;
+ 605              		.loc 1 150 16 view .LVU134
+ 606 0008 2360     		str	r3, [r4]
+ 151:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.KeySize = CRYP_KEYSIZE_128B;
+ 607              		.loc 1 151 2 is_stmt 1 view .LVU135
+ 152:.././hal/stm32l4/stm32l4_hal.c **** 	cryp.Init.pKey = hw_key;
+ 608              		.loc 1 152 20 is_stmt 0 view .LVU136
+ 609 000a 0421     		movs	r1, #4
+ 610 000c 0023     		movs	r3, #0
+ 611 000e C4E90213 		strd	r1, r3, [r4, #8]
+ 153:.././hal/stm32l4/stm32l4_hal.c **** 	HW_AES128_LoadKey(hw_key);
+ 612              		.loc 1 153 2 is_stmt 1 view .LVU137
+ 153:.././hal/stm32l4/stm32l4_hal.c **** 	HW_AES128_LoadKey(hw_key);
+ 613              		.loc 1 153 17 is_stmt 0 view .LVU138
+ 614 0012 2062     		str	r0, [r4, #32]
+ 154:.././hal/stm32l4/stm32l4_hal.c ****   __HAL_RCC_AES_CLK_ENABLE();
+ 615              		.loc 1 154 2 is_stmt 1 view .LVU139
+ 616 0014 FFF7FEFF 		bl	HW_AES128_LoadKey
+ 617              	.LVL17:
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 618              		.loc 1 155 3 view .LVU140
+ 619              	.LBB12:
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 620              		.loc 1 155 3 view .LVU141
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 621              		.loc 1 155 3 view .LVU142
+ 622 0018 0A4B     		ldr	r3, .L27+12
+ 623 001a DA6C     		ldr	r2, [r3, #76]
+ 624 001c 42F48032 		orr	r2, r2, #65536
+ 625 0020 DA64     		str	r2, [r3, #76]
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 626              		.loc 1 155 3 view .LVU143
+ 627 0022 DB6C     		ldr	r3, [r3, #76]
+ 628 0024 03F48033 		and	r3, r3, #65536
+ 629 0028 0193     		str	r3, [sp, #4]
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 630              		.loc 1 155 3 view .LVU144
+ 631 002a 019B     		ldr	r3, [sp, #4]
+ 632              	.LBE12:
+ 155:.././hal/stm32l4/stm32l4_hal.c **** 	HAL_CRYP_Init(&cryp);
+ 633              		.loc 1 155 3 view .LVU145
+ 156:.././hal/stm32l4/stm32l4_hal.c **** }
+ 634              		.loc 1 156 2 view .LVU146
+ 635 002c 2046     		mov	r0, r4
+ 157:.././hal/stm32l4/stm32l4_hal.c **** 
+ 636              		.loc 1 157 1 is_stmt 0 view .LVU147
+ 637 002e 02B0     		add	sp, sp, #8
+ 638              	.LCFI15:
+ 639              		.cfi_def_cfa_offset 8
+ 640              		@ sp needed
+ 641 0030 BDE81040 		pop	{r4, lr}
+ 642              	.LCFI16:
+ 643              		.cfi_restore 14
+ 644              		.cfi_restore 4
+ 645              		.cfi_def_cfa_offset 0
+ 156:.././hal/stm32l4/stm32l4_hal.c **** }
+ 646              		.loc 1 156 2 view .LVU148
+ 647 0034 FFF7FEBF 		b	HAL_CRYP_Init
+ 648              	.LVL18:
+ 649              	.L28:
+ 650              		.align	2
+ 651              	.L27:
+ 652 0038 00000000 		.word	.LANCHOR0
+ 653 003c 00000650 		.word	1342570496
+ 654 0040 00000000 		.word	hw_key
+ 655 0044 00100240 		.word	1073876992
+ 656              		.cfi_endproc
+ 657              	.LFE134:
+ 659              		.section	.text.HW_AES128_Enc_pretrigger,"ax",%progbits
+ 660              		.align	1
+ 661              		.global	HW_AES128_Enc_pretrigger
+ 662              		.syntax unified
+ 663              		.thumb
+ 664              		.thumb_func
+ 665              		.fpu softvfp
+ 667              	HW_AES128_Enc_pretrigger:
+ 668              	.LVL19:
+ 669              	.LFB136:
+ 167:.././hal/stm32l4/stm32l4_hal.c **** 
+ 168:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_Enc_pretrigger(uint8_t* pt)
+ 169:.././hal/stm32l4/stm32l4_hal.c **** {
+ 670              		.loc 1 169 1 is_stmt 1 view -0
+ 671              		.cfi_startproc
+ 672              		@ args = 0, pretend = 0, frame = 0
+ 673              		@ frame_needed = 0, uses_anonymous_args = 0
+ 674              		@ link register save eliminated.
+ 170:.././hal/stm32l4/stm32l4_hal.c ****     HAL_CRYP_Init(&cryp);
+ 675              		.loc 1 170 5 view .LVU150
+ 676 0000 0148     		ldr	r0, .L30
+ 677              	.LVL20:
+ 678              		.loc 1 170 5 is_stmt 0 view .LVU151
+ 679 0002 FFF7FEBF 		b	HAL_CRYP_Init
+ 680              	.LVL21:
+ 681              	.L31:
+ 682 0006 00BF     		.align	2
+ 683              	.L30:
+ 684 0008 00000000 		.word	.LANCHOR0
+ 685              		.cfi_endproc
+ 686              	.LFE136:
+ 688              		.section	.text.HW_AES128_Enc,"ax",%progbits
+ 689              		.align	1
+ 690              		.global	HW_AES128_Enc
+ 691              		.syntax unified
+ 692              		.thumb
+ 693              		.thumb_func
+ 694              		.fpu softvfp
+ 696              	HW_AES128_Enc:
+ 697              	.LVL22:
+ 698              	.LFB137:
+ 171:.././hal/stm32l4/stm32l4_hal.c **** }
+ 172:.././hal/stm32l4/stm32l4_hal.c **** 
+ 173:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_Enc(uint8_t* pt)
+ 174:.././hal/stm32l4/stm32l4_hal.c **** {
+ 699              		.loc 1 174 1 is_stmt 1 view -0
+ 700              		.cfi_startproc
+ 701              		@ args = 0, pretend = 0, frame = 0
+ 702              		@ frame_needed = 0, uses_anonymous_args = 0
+ 175:.././hal/stm32l4/stm32l4_hal.c ****     HAL_CRYP_AESECB_Encrypt(&cryp, pt, 16, pt, 1000);
+ 703              		.loc 1 175 5 view .LVU153
+ 174:.././hal/stm32l4/stm32l4_hal.c ****     HAL_CRYP_AESECB_Encrypt(&cryp, pt, 16, pt, 1000);
+ 704              		.loc 1 174 1 is_stmt 0 view .LVU154
+ 705 0000 07B5     		push	{r0, r1, r2, lr}
+ 706              	.LCFI17:
+ 707              		.cfi_def_cfa_offset 16
+ 708              		.cfi_offset 14, -4
+ 709              		.loc 1 175 5 view .LVU155
+ 710 0002 4FF47A72 		mov	r2, #1000
+ 174:.././hal/stm32l4/stm32l4_hal.c ****     HAL_CRYP_AESECB_Encrypt(&cryp, pt, 16, pt, 1000);
+ 711              		.loc 1 174 1 view .LVU156
+ 712 0006 0346     		mov	r3, r0
+ 713              		.loc 1 175 5 view .LVU157
+ 714 0008 0092     		str	r2, [sp]
+ 715 000a 0146     		mov	r1, r0
+ 716 000c 1022     		movs	r2, #16
+ 717 000e 0348     		ldr	r0, .L33
+ 718              	.LVL23:
+ 719              		.loc 1 175 5 view .LVU158
+ 720 0010 FFF7FEFF 		bl	HAL_CRYP_AESECB_Encrypt
+ 721              	.LVL24:
+ 176:.././hal/stm32l4/stm32l4_hal.c **** }
+ 722              		.loc 1 176 1 view .LVU159
+ 723 0014 03B0     		add	sp, sp, #12
+ 724              	.LCFI18:
+ 725              		.cfi_def_cfa_offset 4
+ 726              		@ sp needed
+ 727 0016 5DF804FB 		ldr	pc, [sp], #4
+ 728              	.L34:
+ 729 001a 00BF     		.align	2
+ 730              	.L33:
+ 731 001c 00000000 		.word	.LANCHOR0
+ 732              		.cfi_endproc
+ 733              	.LFE137:
+ 735              		.section	.text.HW_AES128_Enc_posttrigger,"ax",%progbits
+ 736              		.align	1
+ 737              		.global	HW_AES128_Enc_posttrigger
+ 738              		.syntax unified
+ 739              		.thumb
+ 740              		.thumb_func
+ 741              		.fpu softvfp
+ 743              	HW_AES128_Enc_posttrigger:
+ 744              	.LVL25:
+ 745              	.LFB138:
+ 177:.././hal/stm32l4/stm32l4_hal.c **** 
+ 178:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_Enc_posttrigger(uint8_t* pt)
+ 179:.././hal/stm32l4/stm32l4_hal.c **** {
+ 746              		.loc 1 179 1 is_stmt 1 view -0
+ 747              		.cfi_startproc
+ 748              		@ args = 0, pretend = 0, frame = 0
+ 749              		@ frame_needed = 0, uses_anonymous_args = 0
+ 750              		@ link register save eliminated.
+ 180:.././hal/stm32l4/stm32l4_hal.c ****     ;
+ 751              		.loc 1 180 5 view .LVU161
+ 181:.././hal/stm32l4/stm32l4_hal.c **** }
+ 752              		.loc 1 181 1 is_stmt 0 view .LVU162
+ 753 0000 7047     		bx	lr
+ 754              		.cfi_endproc
+ 755              	.LFE138:
+ 757              		.section	.text.HW_AES128_Dec,"ax",%progbits
+ 758              		.align	1
+ 759              		.global	HW_AES128_Dec
+ 760              		.syntax unified
+ 761              		.thumb
+ 762              		.thumb_func
+ 763              		.fpu softvfp
+ 765              	HW_AES128_Dec:
+ 766              	.LVL26:
+ 767              	.LFB139:
+ 182:.././hal/stm32l4/stm32l4_hal.c **** 
+ 183:.././hal/stm32l4/stm32l4_hal.c **** void HW_AES128_Dec(uint8_t *pt)
+ 184:.././hal/stm32l4/stm32l4_hal.c **** {
+ 768              		.loc 1 184 1 is_stmt 1 view -0
+ 769              		.cfi_startproc
+ 770              		@ args = 0, pretend = 0, frame = 0
+ 771              		@ frame_needed = 0, uses_anonymous_args = 0
+ 185:.././hal/stm32l4/stm32l4_hal.c ****      HAL_CRYP_Init(&cryp);
+ 772              		.loc 1 185 6 view .LVU164
+ 184:.././hal/stm32l4/stm32l4_hal.c ****      HAL_CRYP_Init(&cryp);
+ 773              		.loc 1 184 1 is_stmt 0 view .LVU165
+ 774 0000 37B5     		push	{r0, r1, r2, r4, r5, lr}
+ 775              	.LCFI19:
+ 776              		.cfi_def_cfa_offset 24
+ 777              		.cfi_offset 4, -12
+ 778              		.cfi_offset 5, -8
+ 779              		.cfi_offset 14, -4
+ 780              		.loc 1 185 6 view .LVU166
+ 781 0002 084D     		ldr	r5, .L37
+ 184:.././hal/stm32l4/stm32l4_hal.c ****      HAL_CRYP_Init(&cryp);
+ 782              		.loc 1 184 1 view .LVU167
+ 783 0004 0446     		mov	r4, r0
+ 784              		.loc 1 185 6 view .LVU168
+ 785 0006 2846     		mov	r0, r5
+ 786              	.LVL27:
+ 787              		.loc 1 185 6 view .LVU169
+ 788 0008 FFF7FEFF 		bl	HAL_CRYP_Init
+ 789              	.LVL28:
+ 186:.././hal/stm32l4/stm32l4_hal.c ****      HAL_CRYP_AESECB_Decrypt(&cryp, pt, 16, pt, 1000);
+ 790              		.loc 1 186 6 is_stmt 1 view .LVU170
+ 791 000c 4FF47A73 		mov	r3, #1000
+ 792 0010 0093     		str	r3, [sp]
+ 793 0012 1022     		movs	r2, #16
+ 794 0014 2346     		mov	r3, r4
+ 795 0016 2146     		mov	r1, r4
+ 796 0018 2846     		mov	r0, r5
+ 797 001a FFF7FEFF 		bl	HAL_CRYP_AESECB_Decrypt
+ 798              	.LVL29:
+ 187:.././hal/stm32l4/stm32l4_hal.c **** }
+ 799              		.loc 1 187 1 is_stmt 0 view .LVU171
+ 800 001e 03B0     		add	sp, sp, #12
+ 801              	.LCFI20:
+ 802              		.cfi_def_cfa_offset 12
+ 803              		@ sp needed
+ 804 0020 30BD     		pop	{r4, r5, pc}
+ 805              	.LVL30:
+ 806              	.L38:
+ 807              		.loc 1 187 1 view .LVU172
+ 808 0022 00BF     		.align	2
+ 809              	.L37:
+ 810 0024 00000000 		.word	.LANCHOR0
+ 811              		.cfi_endproc
+ 812              	.LFE139:
+ 814              		.comm	hw_key,16,1
+ 815              		.comm	UartHandle,120,4
+ 816              		.global	MSIRangeTable
+ 817              		.global	APBPrescTable
+ 818              		.global	AHBPrescTable
+ 819              		.global	SystemCoreClock
+ 820              		.section	.rodata
+ 821              		.align	2
+ 824              	MSIRangeTable:
+ 825 0000 A0860100 		.word	100000
+ 826 0004 400D0300 		.word	200000
+ 827 0008 801A0600 		.word	400000
+ 828 000c 00350C00 		.word	800000
+ 829 0010 40420F00 		.word	1000000
+ 830 0014 80841E00 		.word	2000000
+ 831 0018 00093D00 		.word	4000000
+ 832 001c 00127A00 		.word	8000000
+ 833 0020 0024F400 		.word	16000000
+ 834 0024 00366E01 		.word	24000000
+ 835 0028 0048E801 		.word	32000000
+ 836 002c 006CDC02 		.word	48000000
+ 839              	APBPrescTable:
+ 840 0030 00000000 		.ascii	"\000\000\000\000\001\002\003\004"
+ 840      01020304 
+ 843              	AHBPrescTable:
+ 844 0038 00000000 		.ascii	"\000\000\000\000\000\000\000\000\001\002\003\004\006"
+ 844      00000000 
+ 844      01020304 
+ 844      06
+ 845 0045 070809   		.ascii	"\007\010\011"
+ 846              		.data
+ 847              		.align	2
+ 850              	SystemCoreClock:
+ 851 0000 00093D00 		.word	4000000
+ 852              		.bss
+ 853              		.align	3
+ 854              		.set	.LANCHOR0,. + 0
+ 857              	cryp:
+ 858 0000 00000000 		.space	96
+ 858      00000000 
+ 858      00000000 
+ 858      00000000 
+ 858      00000000 
+ 859              		.text
+ 860              	.Letext0:
+ 861              		.file 3 "/usr/lib/gcc/arm-none-eabi/9.2.1/include/stdint.h"
+ 862              		.file 4 ".././hal/stm32l4/CMSIS/Include/core_cm4.h"
+ 863              		.file 5 ".././hal/stm32l4/system_stm32l4xx.h"
+ 864              		.file 6 ".././hal/stm32l4/stm32l443xx.h"
+ 865              		.file 7 ".././hal/stm32l4/stm32l4xx.h"
+ 866              		.file 8 ".././hal/stm32l4/Inc/stm32l4xx_hal_def.h"
+ 867              		.file 9 ".././hal/stm32l4/Inc/stm32l4xx_hal_rcc.h"
+ 868              		.file 10 ".././hal/stm32l4/Inc/stm32l4xx_hal_gpio.h"
+ 869              		.file 11 ".././hal/stm32l4/Inc/stm32l4xx_hal_dma.h"
+ 870              		.file 12 ".././hal/stm32l4/Inc/stm32l4xx_hal_uart.h"
+ 871              		.file 13 ".././hal/stm32l4/Inc/stm32l4xx_hal_cryp.h"
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 stm32l4_hal.c
+     /tmp/ccEKZQbC.s:16     .text.SystemInit:0000000000000000 $t
+     /tmp/ccEKZQbC.s:24     .text.SystemInit:0000000000000000 SystemInit
+     /tmp/ccEKZQbC.s:38     .text.SystemCoreClockUpdate:0000000000000000 $t
+     /tmp/ccEKZQbC.s:45     .text.SystemCoreClockUpdate:0000000000000000 SystemCoreClockUpdate
+     /tmp/ccEKZQbC.s:56     .text.SysTick_Handler:0000000000000000 $t
+     /tmp/ccEKZQbC.s:63     .text.SysTick_Handler:0000000000000000 SysTick_Handler
+     /tmp/ccEKZQbC.s:77     .text._exit:0000000000000000 $t
+     /tmp/ccEKZQbC.s:84     .text._exit:0000000000000000 _exit
+     /tmp/ccEKZQbC.s:102    .text.platform_init:0000000000000000 $t
+     /tmp/ccEKZQbC.s:109    .text.platform_init:0000000000000000 platform_init
+     /tmp/ccEKZQbC.s:187    .text.init_uart:0000000000000000 $t
+     /tmp/ccEKZQbC.s:194    .text.init_uart:0000000000000000 init_uart
+     /tmp/ccEKZQbC.s:303    .text.init_uart:0000000000000068 $d
+                            *COM*:0000000000000078 UartHandle
+     /tmp/ccEKZQbC.s:310    .text.trigger_setup:0000000000000000 $t
+     /tmp/ccEKZQbC.s:317    .text.trigger_setup:0000000000000000 trigger_setup
+     /tmp/ccEKZQbC.s:354    .text.trigger_high:0000000000000000 $t
+     /tmp/ccEKZQbC.s:361    .text.trigger_high:0000000000000000 trigger_high
+     /tmp/ccEKZQbC.s:378    .text.trigger_low:0000000000000000 $t
+     /tmp/ccEKZQbC.s:385    .text.trigger_low:0000000000000000 trigger_low
+     /tmp/ccEKZQbC.s:402    .text.getch:0000000000000000 $t
+     /tmp/ccEKZQbC.s:409    .text.getch:0000000000000000 getch
+     /tmp/ccEKZQbC.s:460    .text.getch:000000000000002c $d
+     /tmp/ccEKZQbC.s:466    .text.putch:0000000000000000 $t
+     /tmp/ccEKZQbC.s:473    .text.putch:0000000000000000 putch
+     /tmp/ccEKZQbC.s:507    .text.putch:000000000000001c $d
+     /tmp/ccEKZQbC.s:512    .text.HW_AES128_LoadKey:0000000000000000 $t
+     /tmp/ccEKZQbC.s:519    .text.HW_AES128_LoadKey:0000000000000000 HW_AES128_LoadKey
+     /tmp/ccEKZQbC.s:574    .text.HW_AES128_LoadKey:0000000000000020 $d
+                            *COM*:0000000000000010 hw_key
+     /tmp/ccEKZQbC.s:580    .text.HW_AES128_Init:0000000000000000 $t
+     /tmp/ccEKZQbC.s:587    .text.HW_AES128_Init:0000000000000000 HW_AES128_Init
+     /tmp/ccEKZQbC.s:652    .text.HW_AES128_Init:0000000000000038 $d
+     /tmp/ccEKZQbC.s:660    .text.HW_AES128_Enc_pretrigger:0000000000000000 $t
+     /tmp/ccEKZQbC.s:667    .text.HW_AES128_Enc_pretrigger:0000000000000000 HW_AES128_Enc_pretrigger
+     /tmp/ccEKZQbC.s:684    .text.HW_AES128_Enc_pretrigger:0000000000000008 $d
+     /tmp/ccEKZQbC.s:689    .text.HW_AES128_Enc:0000000000000000 $t
+     /tmp/ccEKZQbC.s:696    .text.HW_AES128_Enc:0000000000000000 HW_AES128_Enc
+     /tmp/ccEKZQbC.s:731    .text.HW_AES128_Enc:000000000000001c $d
+     /tmp/ccEKZQbC.s:736    .text.HW_AES128_Enc_posttrigger:0000000000000000 $t
+     /tmp/ccEKZQbC.s:743    .text.HW_AES128_Enc_posttrigger:0000000000000000 HW_AES128_Enc_posttrigger
+     /tmp/ccEKZQbC.s:758    .text.HW_AES128_Dec:0000000000000000 $t
+     /tmp/ccEKZQbC.s:765    .text.HW_AES128_Dec:0000000000000000 HW_AES128_Dec
+     /tmp/ccEKZQbC.s:810    .text.HW_AES128_Dec:0000000000000024 $d
+     /tmp/ccEKZQbC.s:824    .rodata:0000000000000000 MSIRangeTable
+     /tmp/ccEKZQbC.s:839    .rodata:0000000000000030 APBPrescTable
+     /tmp/ccEKZQbC.s:843    .rodata:0000000000000038 AHBPrescTable
+     /tmp/ccEKZQbC.s:850    .data:0000000000000000 SystemCoreClock
+     /tmp/ccEKZQbC.s:821    .rodata:0000000000000000 $d
+     /tmp/ccEKZQbC.s:847    .data:0000000000000000 $d
+     /tmp/ccEKZQbC.s:853    .bss:0000000000000000 $d
+     /tmp/ccEKZQbC.s:857    .bss:0000000000000000 cryp
+
+UNDEFINED SYMBOLS
+HAL_IncTick
+HAL_RCC_OscConfig
+HAL_RCC_ClockConfig
+HAL_GPIO_Init
+HAL_UART_Init
+HAL_GPIO_WritePin
+HAL_UART_Receive
+HAL_UART_Transmit
+HAL_CRYP_Init
+HAL_CRYP_AESECB_Encrypt
+HAL_CRYP_AESECB_Decrypt

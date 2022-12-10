@@ -1,0 +1,10 @@
+[Trace Management]
+tracefile0 = 32bit_AES_decimate_1cwp_data/traces/config_2021.12.02-10.51.58_0.cfg
+enabled0 = True
+[ChipWhisperer]
+[[General Settings]]
+Project Name = Untitled
+Project File Version = 1.00
+Project Author = Unknown
+Program Name = ChipWhisperer
+Program Version = ""
