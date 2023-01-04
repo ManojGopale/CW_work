@@ -1,0 +1,282 @@
+08001694 <mbedtls_internal_aes_encrypt>:
+ 8001694:	e92d 4ff0 	stmdb	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, lr}
+ 8001698:	6843      	ldr	r3, [r0, #4]
+ 800169a:	680e      	ldr	r6, [r1, #0]
+ 800169c:	681c      	ldr	r4, [r3, #0]
+ 800169e:	684d      	ldr	r5, [r1, #4]
+ 80016a0:	6800      	ldr	r0, [r0, #0]
+ 80016a2:	688f      	ldr	r7, [r1, #8]
+ 80016a4:	4066      	eors	r6, r4
+ 80016a6:	685c      	ldr	r4, [r3, #4]
+ 80016a8:	4065      	eors	r5, r4
+ 80016aa:	689c      	ldr	r4, [r3, #8]
+ 80016ac:	b08d      	sub	sp, #52	; 0x34
+ 80016ae:	1040      	asrs	r0, r0, #1
+ 80016b0:	3801      	subs	r0, #1
+ 80016b2:	ea84 0b07 	eor.w	fp, r4, r7
+ 80016b6:	68cf      	ldr	r7, [r1, #12]
+ 80016b8:	68d9      	ldr	r1, [r3, #12]
+ 80016ba:	9000      	str	r0, [sp, #0]
+ 80016bc:	f103 0030 	add.w	r0, r3, #48	; 0x30
+ 80016c0:	4bc2      	ldr	r3, [pc, #776]	; (80019cc <mbedtls_internal_aes_encrypt+0x338>)
+ 80016c2:	4079      	eors	r1, r7
+ 80016c4:	f850 7c10 	ldr.w	r7, [r0, #-16]
+ 80016c8:	9701      	str	r7, [sp, #4]
+ 80016ca:	b2f7      	uxtb	r7, r6
+ 80016cc:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 80016d0:	f850 4c20 	ldr.w	r4, [r0, #-32]
+ 80016d4:	6b3f      	ldr	r7, [r7, #48]	; 0x30
+ 80016d6:	ea87 0e04 	eor.w	lr, r7, r4
+ 80016da:	0e0f      	lsrs	r7, r1, #24
+ 80016dc:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 80016e0:	f850 4c1c 	ldr.w	r4, [r0, #-28]
+ 80016e4:	f8d7 7430 	ldr.w	r7, [r7, #1072]	; 0x430
+ 80016e8:	ea8e 0e07 	eor.w	lr, lr, r7
+ 80016ec:	f3c5 2707 	ubfx	r7, r5, #8, #8
+ 80016f0:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 80016f4:	ea4f 6a15 	mov.w	sl, r5, lsr #24
+ 80016f8:	f8d7 7830 	ldr.w	r7, [r7, #2096]	; 0x830
+ 80016fc:	ea8e 0e07 	eor.w	lr, lr, r7
+ 8001700:	f3cb 4707 	ubfx	r7, fp, #16, #8
+ 8001704:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 8001708:	eb03 0a8a 	add.w	sl, r3, sl, lsl #2
+ 800170c:	f8d7 7c30 	ldr.w	r7, [r7, #3120]	; 0xc30
+ 8001710:	f8da a430 	ldr.w	sl, [sl, #1072]	; 0x430
+ 8001714:	ea8e 0e07 	eor.w	lr, lr, r7
+ 8001718:	b2ef      	uxtb	r7, r5
+ 800171a:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 800171e:	f3c5 4507 	ubfx	r5, r5, #16, #8
+ 8001722:	6b3f      	ldr	r7, [r7, #48]	; 0x30
+ 8001724:	ea87 0c04 	eor.w	ip, r7, r4
+ 8001728:	0e37      	lsrs	r7, r6, #24
+ 800172a:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 800172e:	f850 4c18 	ldr.w	r4, [r0, #-24]
+ 8001732:	f8d7 7430 	ldr.w	r7, [r7, #1072]	; 0x430
+ 8001736:	ea8c 0c07 	eor.w	ip, ip, r7
+ 800173a:	f3cb 2707 	ubfx	r7, fp, #8, #8
+ 800173e:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 8001742:	eb03 0585 	add.w	r5, r3, r5, lsl #2
+ 8001746:	f8d7 7830 	ldr.w	r7, [r7, #2096]	; 0x830
+ 800174a:	ea8c 0c07 	eor.w	ip, ip, r7
+ 800174e:	f3c1 4707 	ubfx	r7, r1, #16, #8
+ 8001752:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 8001756:	fa5f f88e 	uxtb.w	r8, lr
+ 800175a:	f8d7 7c30 	ldr.w	r7, [r7, #3120]	; 0xc30
+ 800175e:	ea8c 0c07 	eor.w	ip, ip, r7
+ 8001762:	fa5f f78b 	uxtb.w	r7, fp
+ 8001766:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 800176a:	f3cc 2907 	ubfx	r9, ip, #8, #8
+ 800176e:	6b3f      	ldr	r7, [r7, #48]	; 0x30
+ 8001770:	4067      	eors	r7, r4
+ 8001772:	ea87 070a 	eor.w	r7, r7, sl
+ 8001776:	f3c1 2a07 	ubfx	sl, r1, #8, #8
+ 800177a:	b2c9      	uxtb	r1, r1
+ 800177c:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 8001780:	f850 4c14 	ldr.w	r4, [r0, #-20]
+ 8001784:	6b09      	ldr	r1, [r1, #48]	; 0x30
+ 8001786:	eb03 0a8a 	add.w	sl, r3, sl, lsl #2
+ 800178a:	4061      	eors	r1, r4
+ 800178c:	f8da a830 	ldr.w	sl, [sl, #2096]	; 0x830
+ 8001790:	ea4f 641b 	mov.w	r4, fp, lsr #24
+ 8001794:	eb03 0484 	add.w	r4, r3, r4, lsl #2
+ 8001798:	ea87 070a 	eor.w	r7, r7, sl
+ 800179c:	f3c6 4a07 	ubfx	sl, r6, #16, #8
+ 80017a0:	f3c6 2607 	ubfx	r6, r6, #8, #8
+ 80017a4:	f8d4 4430 	ldr.w	r4, [r4, #1072]	; 0x430
+ 80017a8:	eb03 0686 	add.w	r6, r3, r6, lsl #2
+ 80017ac:	4061      	eors	r1, r4
+ 80017ae:	f8d6 4830 	ldr.w	r4, [r6, #2096]	; 0x830
+ 80017b2:	4061      	eors	r1, r4
+ 80017b4:	f8d5 4c30 	ldr.w	r4, [r5, #3120]	; 0xc30
+ 80017b8:	eb03 0a8a 	add.w	sl, r3, sl, lsl #2
+ 80017bc:	4061      	eors	r1, r4
+ 80017be:	f8da ac30 	ldr.w	sl, [sl, #3120]	; 0xc30
+ 80017c2:	f850 4c0c 	ldr.w	r4, [r0, #-12]
+ 80017c6:	9402      	str	r4, [sp, #8]
+ 80017c8:	f3c1 4607 	ubfx	r6, r1, #16, #8
+ 80017cc:	9603      	str	r6, [sp, #12]
+ 80017ce:	ea4f 661e 	mov.w	r6, lr, lsr #24
+ 80017d2:	ea87 070a 	eor.w	r7, r7, sl
+ 80017d6:	9604      	str	r6, [sp, #16]
+ 80017d8:	f850 6c08 	ldr.w	r6, [r0, #-8]
+ 80017dc:	9605      	str	r6, [sp, #20]
+ 80017de:	b2fe      	uxtb	r6, r7
+ 80017e0:	9606      	str	r6, [sp, #24]
+ 80017e2:	f3c1 2607 	ubfx	r6, r1, #8, #8
+ 80017e6:	9607      	str	r6, [sp, #28]
+ 80017e8:	f3ce 4607 	ubfx	r6, lr, #16, #8
+ 80017ec:	9608      	str	r6, [sp, #32]
+ 80017ee:	0e0d      	lsrs	r5, r1, #24
+ 80017f0:	ea4f 661c 	mov.w	r6, ip, lsr #24
+ 80017f4:	b2c9      	uxtb	r1, r1
+ 80017f6:	9609      	str	r6, [sp, #36]	; 0x24
+ 80017f8:	f850 6c04 	ldr.w	r6, [r0, #-4]
+ 80017fc:	910b      	str	r1, [sp, #44]	; 0x2c
+ 80017fe:	9900      	ldr	r1, [sp, #0]
+ 8001800:	960a      	str	r6, [sp, #40]	; 0x28
+ 8001802:	2900      	cmp	r1, #0
+ 8001804:	f3c7 4a07 	ubfx	sl, r7, #16, #8
+ 8001808:	fa5f f48c 	uxtb.w	r4, ip
+ 800180c:	f3c7 2b07 	ubfx	fp, r7, #8, #8
+ 8001810:	f3ce 2e07 	ubfx	lr, lr, #8, #8
+ 8001814:	f3cc 4c07 	ubfx	ip, ip, #16, #8
+ 8001818:	ea4f 6717 	mov.w	r7, r7, lsr #24
+ 800181c:	f100 0020 	add.w	r0, r0, #32
+ 8001820:	dc77      	bgt.n	8001912 <mbedtls_internal_aes_encrypt+0x27e>
+ 8001822:	4b6b      	ldr	r3, [pc, #428]	; (80019d0 <mbedtls_internal_aes_encrypt+0x33c>)
+ 8001824:	9801      	ldr	r0, [sp, #4]
+ 8001826:	4498      	add	r8, r3
+ 8001828:	4499      	add	r9, r3
+ 800182a:	f898 6028 	ldrb.w	r6, [r8, #40]	; 0x28
+ 800182e:	f899 1028 	ldrb.w	r1, [r9, #40]	; 0x28
+ 8001832:	449a      	add	sl, r3
+ 8001834:	4046      	eors	r6, r0
+ 8001836:	441d      	add	r5, r3
+ 8001838:	ea86 2601 	eor.w	r6, r6, r1, lsl #8
+ 800183c:	f89a 1028 	ldrb.w	r1, [sl, #40]	; 0x28
+ 8001840:	9802      	ldr	r0, [sp, #8]
+ 8001842:	441c      	add	r4, r3
+ 8001844:	449b      	add	fp, r3
+ 8001846:	ea86 4601 	eor.w	r6, r6, r1, lsl #16
+ 800184a:	f895 1028 	ldrb.w	r1, [r5, #40]	; 0x28
+ 800184e:	f894 5028 	ldrb.w	r5, [r4, #40]	; 0x28
+ 8001852:	9c0a      	ldr	r4, [sp, #40]	; 0x28
+ 8001854:	ea86 6601 	eor.w	r6, r6, r1, lsl #24
+ 8001858:	f89b 1028 	ldrb.w	r1, [fp, #40]	; 0x28
+ 800185c:	7016      	strb	r6, [r2, #0]
+ 800185e:	4045      	eors	r5, r0
+ 8001860:	ea85 2501 	eor.w	r5, r5, r1, lsl #8
+ 8001864:	9903      	ldr	r1, [sp, #12]
+ 8001866:	4419      	add	r1, r3
+ 8001868:	449e      	add	lr, r3
+ 800186a:	f891 1028 	ldrb.w	r1, [r1, #40]	; 0x28
+ 800186e:	ea85 4501 	eor.w	r5, r5, r1, lsl #16
+ 8001872:	9904      	ldr	r1, [sp, #16]
+ 8001874:	4419      	add	r1, r3
+ 8001876:	449c      	add	ip, r3
+ 8001878:	f891 1028 	ldrb.w	r1, [r1, #40]	; 0x28
+ 800187c:	ea85 6501 	eor.w	r5, r5, r1, lsl #24
+ 8001880:	9907      	ldr	r1, [sp, #28]
+ 8001882:	7115      	strb	r5, [r2, #4]
+ 8001884:	4419      	add	r1, r3
+ 8001886:	441f      	add	r7, r3
+ 8001888:	f891 8028 	ldrb.w	r8, [r1, #40]	; 0x28
+ 800188c:	9906      	ldr	r1, [sp, #24]
+ 800188e:	4419      	add	r1, r3
+ 8001890:	f891 0028 	ldrb.w	r0, [r1, #40]	; 0x28
+ 8001894:	9905      	ldr	r1, [sp, #20]
+ 8001896:	4048      	eors	r0, r1
+ 8001898:	9908      	ldr	r1, [sp, #32]
+ 800189a:	4419      	add	r1, r3
+ 800189c:	ea80 2008 	eor.w	r0, r0, r8, lsl #8
+ 80018a0:	f891 1028 	ldrb.w	r1, [r1, #40]	; 0x28
+ 80018a4:	ea80 4001 	eor.w	r0, r0, r1, lsl #16
+ 80018a8:	9909      	ldr	r1, [sp, #36]	; 0x24
+ 80018aa:	4419      	add	r1, r3
+ 80018ac:	f891 1028 	ldrb.w	r1, [r1, #40]	; 0x28
+ 80018b0:	ea80 6001 	eor.w	r0, r0, r1, lsl #24
+ 80018b4:	990b      	ldr	r1, [sp, #44]	; 0x2c
+ 80018b6:	4419      	add	r1, r3
+ 80018b8:	f897 3028 	ldrb.w	r3, [r7, #40]	; 0x28
+ 80018bc:	f891 1028 	ldrb.w	r1, [r1, #40]	; 0x28
+ 80018c0:	4061      	eors	r1, r4
+ 80018c2:	f89e 4028 	ldrb.w	r4, [lr, #40]	; 0x28
+ 80018c6:	ea81 2104 	eor.w	r1, r1, r4, lsl #8
+ 80018ca:	f89c 4028 	ldrb.w	r4, [ip, #40]	; 0x28
+ 80018ce:	ea81 4104 	eor.w	r1, r1, r4, lsl #16
+ 80018d2:	ea81 6303 	eor.w	r3, r1, r3, lsl #24
+ 80018d6:	0a31      	lsrs	r1, r6, #8
+ 80018d8:	7051      	strb	r1, [r2, #1]
+ 80018da:	0c31      	lsrs	r1, r6, #16
+ 80018dc:	7091      	strb	r1, [r2, #2]
+ 80018de:	0e36      	lsrs	r6, r6, #24
+ 80018e0:	0a29      	lsrs	r1, r5, #8
+ 80018e2:	70d6      	strb	r6, [r2, #3]
+ 80018e4:	7151      	strb	r1, [r2, #5]
+ 80018e6:	0c29      	lsrs	r1, r5, #16
+ 80018e8:	7191      	strb	r1, [r2, #6]
+ 80018ea:	0a01      	lsrs	r1, r0, #8
+ 80018ec:	7251      	strb	r1, [r2, #9]
+ 80018ee:	0c01      	lsrs	r1, r0, #16
+ 80018f0:	7210      	strb	r0, [r2, #8]
+ 80018f2:	7291      	strb	r1, [r2, #10]
+ 80018f4:	0e00      	lsrs	r0, r0, #24
+ 80018f6:	0a19      	lsrs	r1, r3, #8
+ 80018f8:	0e2d      	lsrs	r5, r5, #24
+ 80018fa:	72d0      	strb	r0, [r2, #11]
+ 80018fc:	7313      	strb	r3, [r2, #12]
+ 80018fe:	7351      	strb	r1, [r2, #13]
+ 8001900:	2000      	movs	r0, #0
+ 8001902:	0c19      	lsrs	r1, r3, #16
+ 8001904:	0e1b      	lsrs	r3, r3, #24
+ 8001906:	71d5      	strb	r5, [r2, #7]
+ 8001908:	7391      	strb	r1, [r2, #14]
+ 800190a:	73d3      	strb	r3, [r2, #15]
+ 800190c:	b00d      	add	sp, #52	; 0x34
+ 800190e:	e8bd 8ff0 	ldmia.w	sp!, {r4, r5, r6, r7, r8, r9, sl, fp, pc}
+ 8001912:	eb03 0888 	add.w	r8, r3, r8, lsl #2
+ 8001916:	eb03 0585 	add.w	r5, r3, r5, lsl #2
+ 800191a:	f8d8 6030 	ldr.w	r6, [r8, #48]	; 0x30
+ 800191e:	f8d5 1430 	ldr.w	r1, [r5, #1072]	; 0x430
+ 8001922:	eb03 0989 	add.w	r9, r3, r9, lsl #2
+ 8001926:	404e      	eors	r6, r1
+ 8001928:	9901      	ldr	r1, [sp, #4]
+ 800192a:	eb03 0a8a 	add.w	sl, r3, sl, lsl #2
+ 800192e:	404e      	eors	r6, r1
+ 8001930:	f8d9 1830 	ldr.w	r1, [r9, #2096]	; 0x830
+ 8001934:	404e      	eors	r6, r1
+ 8001936:	f8da 1c30 	ldr.w	r1, [sl, #3120]	; 0xc30
+ 800193a:	404e      	eors	r6, r1
+ 800193c:	9904      	ldr	r1, [sp, #16]
+ 800193e:	eb03 0484 	add.w	r4, r3, r4, lsl #2
+ 8001942:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 8001946:	6b25      	ldr	r5, [r4, #48]	; 0x30
+ 8001948:	f8d1 1430 	ldr.w	r1, [r1, #1072]	; 0x430
+ 800194c:	9c09      	ldr	r4, [sp, #36]	; 0x24
+ 800194e:	404d      	eors	r5, r1
+ 8001950:	eb03 0b8b 	add.w	fp, r3, fp, lsl #2
+ 8001954:	9902      	ldr	r1, [sp, #8]
+ 8001956:	404d      	eors	r5, r1
+ 8001958:	f8db 1830 	ldr.w	r1, [fp, #2096]	; 0x830
+ 800195c:	404d      	eors	r5, r1
+ 800195e:	9903      	ldr	r1, [sp, #12]
+ 8001960:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 8001964:	eb03 0884 	add.w	r8, r3, r4, lsl #2
+ 8001968:	f8d1 1c30 	ldr.w	r1, [r1, #3120]	; 0xc30
+ 800196c:	404d      	eors	r5, r1
+ 800196e:	9906      	ldr	r1, [sp, #24]
+ 8001970:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 8001974:	eb03 0787 	add.w	r7, r3, r7, lsl #2
+ 8001978:	6b0c      	ldr	r4, [r1, #48]	; 0x30
+ 800197a:	f8d8 1430 	ldr.w	r1, [r8, #1072]	; 0x430
+ 800197e:	f8d7 7430 	ldr.w	r7, [r7, #1072]	; 0x430
+ 8001982:	404c      	eors	r4, r1
+ 8001984:	9905      	ldr	r1, [sp, #20]
+ 8001986:	404c      	eors	r4, r1
+ 8001988:	9907      	ldr	r1, [sp, #28]
+ 800198a:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 800198e:	eb03 0e8e 	add.w	lr, r3, lr, lsl #2
+ 8001992:	f8d1 1830 	ldr.w	r1, [r1, #2096]	; 0x830
+ 8001996:	404c      	eors	r4, r1
+ 8001998:	9908      	ldr	r1, [sp, #32]
+ 800199a:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 800199e:	eb03 0c8c 	add.w	ip, r3, ip, lsl #2
+ 80019a2:	f8d1 1c30 	ldr.w	r1, [r1, #3120]	; 0xc30
+ 80019a6:	ea84 0b01 	eor.w	fp, r4, r1
+ 80019aa:	990b      	ldr	r1, [sp, #44]	; 0x2c
+ 80019ac:	eb03 0181 	add.w	r1, r3, r1, lsl #2
+ 80019b0:	6b09      	ldr	r1, [r1, #48]	; 0x30
+ 80019b2:	4079      	eors	r1, r7
+ 80019b4:	9f0a      	ldr	r7, [sp, #40]	; 0x28
+ 80019b6:	4079      	eors	r1, r7
+ 80019b8:	f8de 7830 	ldr.w	r7, [lr, #2096]	; 0x830
+ 80019bc:	4079      	eors	r1, r7
+ 80019be:	f8dc 7c30 	ldr.w	r7, [ip, #3120]	; 0xc30
+ 80019c2:	4079      	eors	r1, r7
+ 80019c4:	9f00      	ldr	r7, [sp, #0]
+ 80019c6:	3f01      	subs	r7, #1
+ 80019c8:	9700      	str	r7, [sp, #0]
+ 80019ca:	e67b      	b.n	80016c4 <mbedtls_internal_aes_encrypt+0x30>
+ 80019cc:	08002eb0 	.word	0x08002eb0
+ 80019d0:	08001db8 	.word	0x08001db8
+
