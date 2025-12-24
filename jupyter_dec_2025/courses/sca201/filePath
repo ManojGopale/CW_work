@@ -1,0 +1,19 @@
+{
+    "adc_presamples": 0,
+    "adc_samples": 1500,
+    "adc_timeout": 2,
+    "clock_adc_src": "clkgen_x1",
+    "clock_adc_freq": 7384620,
+    "scope.clock.adc_rate": 7384620.0,
+    "scope.clock.adc_locked": true,
+    "scope.clock.freq_ctr": 0,
+    "scope.clock.freq_ctr_src": "extclk",
+    "scope.clock.clkgen_src": "system",
+    "scope.clock.extclk_freq": 10000000,
+    "scope.clock.clkgen_mul": 2,
+    "scope.clock.clkgen_div": 26,
+    "scope.clock.clkgen_freq": 7384615.384615385,
+    "scope_gain_mode": "high",
+    "scope_gain_gain": 30,
+    "scope_gain_db": 24.8359375
+}
